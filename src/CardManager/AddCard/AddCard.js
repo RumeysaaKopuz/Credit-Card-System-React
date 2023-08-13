@@ -15,7 +15,7 @@ const initialState = {
 };
 
 export default function AddCard() {
-  const navigate = useNavigate();
+
   const [state, setState] = useState(initialState);
   const [isCardFlipped, setIsCardFlipped] = useState(false);
 
@@ -29,27 +29,7 @@ export default function AddCard() {
     [state],
   );
 
-  function handleSubmitAction() {
-    try {
-      let newCardsList= [];
-      if (localStorage.getItem('cards')) {
-        const storageCards = JSON.parse(localStorage.getItem('cards') ?? '');
-        newCardsList = storageCards ? [...storageCards] : [];
-      }
-
-      newCardsList.push({
-        ...state,
-        id: uuid(),
-      });
-      updateLocalStorageCards(newCardsList);
-      navigate('/');
-    } catch (error) {
-      alert(error);
-      console.log(error);
-    } finally {
-      //release resources or stop loader
-    }
-  }
+ 
 
   return (
     <Fragment>
@@ -59,7 +39,7 @@ export default function AddCard() {
             selectedCreditCard={state}
             onUpdateState={updateStateValues}
             setIsCardFlipped={setIsCardFlipped}
-            handleSubmitAction={handleSubmitAction}
+           
           >
             <Card
               cardNumber={state.cardNumber}
