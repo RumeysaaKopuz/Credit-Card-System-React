@@ -220,7 +220,7 @@ export default function CardForm(props: CardFormProps) {
             <div className="d-grid gap-2">
               <Button variant="primary" size="lg" onClick={handleConfirmAction}>
                 Confirm
-              </Button>{' '}
+              </Button>
             </div>
           </div>
         </div>
